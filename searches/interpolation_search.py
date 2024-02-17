@@ -137,3 +137,39 @@ if __name__ == "__main__":
         print(f"{target} found at positions: {result}")
     else:
         print("Not found")
+
+import unittest
+
+
+class TestInterpolationSearch(unittest.TestCase):
+    def test_interpolation_search_existing_element(self):
+        """
+        Test interpolation search for an existing element.
+        """
+        array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        self.assertEqual(interpolation_search(array, 9), 8)  # Index of 9 is 8
+
+    def test_interpolation_search_missing_element(self):
+        """
+        Test interpolation search for a missing element.
+        """
+        array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        self.assertIsNone(interpolation_search(array, 10))  # 10 is not in the array
+
+    def test_interpolation_search_by_recursion_existing_element(self):
+        """
+        Test interpolation search via recursion for an existing element.
+        """
+        array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        self.assertEqual(
+            interpolation_search_by_recursion(array, 9, 0, 8), 8
+        )  # Index of 9 is 8
+
+    def test_interpolation_search_by_recursion_missing_element(self):
+        """
+        Test interpolation search via recursion for a missing element.
+        """
+        array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        self.assertIsNone(
+            interpolation_search_by_recursion(array, 10, 0, 8)
+        )  # 10 is not in the array
